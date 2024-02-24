@@ -1,8 +1,6 @@
-// store.ts
 import { configureStore } from '@reduxjs/toolkit';
-import rootReducer, { RootState } from './features/rootReducer';
+import rootReducer, { RootState } from './slice/rootReducer';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
-
 
 const store = configureStore({
   reducer: rootReducer,

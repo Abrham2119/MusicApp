@@ -1,8 +1,7 @@
-// songsSlice.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface Song {
-  id: string;
+export interface Song {
+  id?: string;
   title: string;
   artist: string;
   album: string;

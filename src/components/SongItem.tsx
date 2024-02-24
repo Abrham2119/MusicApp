@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Song } from '../../types/song.trype';
+import { Song } from '../types/song.type';
 4
 // Individual SongItem component
 const SongItem: FC<Song> = ({ title, artist, album, genre }) => (

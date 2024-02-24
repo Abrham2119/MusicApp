@@ -1,11 +1,9 @@
-// playlistSlice.ts
-
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface Playlist {
   id: number;
   name: string;
-  songs: number[]; // Assuming each song has a unique ID
+  songs: number[];
 }
 
 interface PlaylistState {

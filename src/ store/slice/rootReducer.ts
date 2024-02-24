@@ -1,5 +1,3 @@
-// rootReducer.ts
-
 import { combineReducers } from 'redux';
 import songsReducer from './songsSlice';
 import userReducer from './userSlice';

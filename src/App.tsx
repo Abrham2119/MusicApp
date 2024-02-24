@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 const App: FC = () => (
   <div>
-    <h1>this is part of song</h1>
+    <h1>this is</h1>
   </div>
 );
 

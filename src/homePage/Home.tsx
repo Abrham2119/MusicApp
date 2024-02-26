@@ -55,19 +55,21 @@ export const CustomHome = () => {
               {currentBody.toLowerCase() === "artist" && (songFiltered ? <MusicContainer songs={currentSong} /> : <ArtistsList />)}
               {currentBody.toLowerCase() === "genre" && (songFiltered ? <MusicContainer songs={currentSong} /> : <GenreList />)}
               {currentBody.split(" ")[0].toLowerCase() === "recent" && (<div>Recent</div>)}
-              {currentBody.toLowerCase() === "favorite" && <MusicContainer songs={currentSong} />}
               {currentBody.toLowerCase() === "home" && <MusicContainer songs={currentSong} />}
 
             </Body> : <Header />
 
         }
 
-        <CustomMusicController />
+      
       </HomeDev>
+      
 
 
       {addSong && <AddCard />}
         {updateSong && <UpdateCard />}
+        <CustomMusicController />
+
     </Home>
   );
 };

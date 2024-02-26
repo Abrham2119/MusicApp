@@ -10,10 +10,10 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { theme } from "../../theme/Theme";
 import { useDispatch, useSelector } from "react-redux";
 import CustomButton from "../CustomButton";
-import { deleteSong, loadUpdateData, openUpdateSong, setCurrentSong, toggleFavorite, updateSong } from "../../store/features/songSlice";
+import { loadUpdateData, openUpdateSong, setCurrentSong, toggleFavorite, updateSong } from "../../store/features/songSlice";
 import axios from "axios";
 import { Song } from "../../types/dataType";
-import { RotatingElement } from "../../styles/CardStyle";
+
 import { DELETE_SONG_BY_ID, TOGGLE_FAVORITE_BY_ID } from "../../types/redux.type";
 import { RootState } from "../../store/store";
 
@@ -31,38 +31,42 @@ export const MusicCardComponent:React.FC<{song:Song}>  = ({song}) => {
   const dispatch = useDispatch()
 
 
-  const toggleOptions = () => {
-    setOptionsVisible(!optionsVisible);
-  };
 
-  
+ 
   return (
     <StyledMusicCard onClick={()=>{
     dispatch(setCurrentSong(song))
     }}>
-   
       
       <CustomHeader size="small" color="white">
         {song.artist}
       </CustomHeader>
       <div style={{width:"100%",display:"flex", justifyContent:"space-between"}}>
-      <IconButton onClick={()=>dispatch({type:TOGGLE_FAVORITE_BY_ID, id:song._id})}>
-        <FavoriteIcon color={favorite ? "error" : "action"} />
+      <IconButton onClick={(e)=>{
+            e.stopPropagation()
+        dispatch({type:TOGGLE_FAVORITE_BY_ID, id:song._id})}}>
+        <FavoriteIcon color={song.isFavorite ? "error" : "action"} />
       </IconButton>
       <CustomHeader animation={true} width={'50px'} size="10px" color="gray" weight="bold">
        {song.title}
       </CustomHeader>
-      <IconButton onClick={toggleOptions}>
+      <IconButton onClick={(e)=>{
+        e.stopPropagation()
+        setOptionsVisible(!optionsVisible);
+      }}>
         <MoreVertIcon />
       </IconButton>
       </div>
       <CardOptions visible={optionsVisible}>
-        <CustomButton customStyles={'border-right:1px solid #fff3'} backgroundColor={theme.colors.secondaryBackground} onClick={()=>{
+        <CustomButton customStyles={'border-right:1px solid #fff3'} backgroundColor={theme.colors.secondaryBackground} onClick={(e)=>{
+          e.stopPropagation()
           dispatch(loadUpdateData(song))
           dispatch(openUpdateSong(true))}}>
          Update
         </CustomButton>
-        <CustomButton backgroundColor="none" onClick={()=>dispatch({type:DELETE_SONG_BY_ID, id:song._id})}>
+        <CustomButton backgroundColor="none" onClick={(e)=>{
+          e.stopPropagation()
+          dispatch({type:DELETE_SONG_BY_ID, id:song._id})}}>
           <DeleteIcon sx={{color:"white"}}/>
         </CustomButton>
       </CardOptions>

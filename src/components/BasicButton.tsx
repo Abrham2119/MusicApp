@@ -10,7 +10,6 @@ interface MainButtonProps extends ButtonProps {
 
 const MainButton: React.FC<MainButtonProps> = ({
   size = 'small',
-  shape = 'circle',
   backgroundColor,
   color,
   hoverBackgroundColor,

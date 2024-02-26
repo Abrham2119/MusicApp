@@ -2,10 +2,7 @@ import styled from "styled-components";
 import CustomButton from "../components/CustomButton";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import PauseIcon from "@mui/icons-material/Pause";
-import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
 import SkipNextIcon from "@mui/icons-material/SkipNext";
-import ShuffleIcon from "@mui/icons-material/Shuffle";
-import RepeatIcon from "@mui/icons-material/Repeat";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ProgressBar from "./ProgressBar";
@@ -15,7 +12,6 @@ import VolumeOffIcon from "@mui/icons-material/VolumeOff";
 import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 import { useState, useRef, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { SongsState } from "../types/dataType";
 import sampleMP3 from "../assets/sampleMP3.mp3"
 import { theme } from "../theme/Theme";
 import { CustomImage } from "../components/images/CustomImage";
@@ -24,12 +20,14 @@ import { RootState } from "../store/store";
 const MusicController = styled.div<{ isPlaying: boolean }>`
   height: ${({ theme }) => theme.sizes.controllerHeight};
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.secondaryBackground};
+ background: linear-gradient(to bottom right, #000000, #FF0000);
   display: ${({ isPlaying }) => (isPlaying ? "flex" : "none")};
   align-items: center;
   justify-content: space-evenly;
   z-index: 10;
-  position:relative;
+  position:absolute;
+  left:0;
+  bottom:0;
 `;
 
 const TimeController = styled.div`

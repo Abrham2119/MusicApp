@@ -78,7 +78,7 @@ export const CustomHome = () => {
 const Header = () => {
   return (
     <HeaderContainer>
-      <h1 style={{ fontSize: '500%', color: theme.colors.lightWhite }}>Empty playlist.</h1>
+      <h1 style={{ fontSize: '500%', color: theme.colors.lightWhite }}>Please Add Music.</h1>
     </HeaderContainer>
   );
 };

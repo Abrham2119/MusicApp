@@ -62,8 +62,7 @@ export const CustomHome = () => {
         }
 
       
-      </HomeDev>
-      
+      </HomeDev>     
 
 
       {addSong && <AddCard />}
